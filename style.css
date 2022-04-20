@@ -37,6 +37,10 @@ footer {
 }
 
 #button-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 5px;
     margin-bottom: 10%;
     width: 70%;
     height: 60%;
