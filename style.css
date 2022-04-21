@@ -80,8 +80,6 @@ button:active {
     border-radius: 5px;
     box-shadow: inset 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
     text-align: right;
-    display: flex;
-    flex-direction: column;
     color: #C6C6C6;
     font-style: italic;
     justify-content: space-evenly;
@@ -90,7 +88,8 @@ button:active {
 
 #screen-result {
     font-size: 24px;
-    margin-right: .75rem;
+    margin: .75rem;
+
 }
 
 #screen-input {
