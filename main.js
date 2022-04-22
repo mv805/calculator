@@ -4,26 +4,37 @@ const maxInputLength = 10;
 
 const screenInput = document.querySelector('#screen-input');
 const clearButton = document.querySelector('#clear-button');
+const deleteButton = document.querySelector('#delete-button');
 const numberButtons = Array.from(document.querySelectorAll('.number-buttons'));
 
 clearButton.addEventListener('click', () => {
-    clearInput(mainInput);
+    clearElement(mainInput, screenInput);
 });
+
+deleteButton.addEventListener('click', () => {
+    deleteSingleDigit(mainInput);
+    updateScreenInput(mainInput);
+});
+
 numberButtons.forEach(numberButton => numberButton.addEventListener('click', (e) => {
     addNumberToInput(e, mainInput);
 }));
 
-function clearInput(numberArray) {
+function deleteSingleDigit(numberArray) {
+    numberArray.pop();
+}
+
+function clearElement(numberArray, elementToClear) {
     numberArray.length = 0;
     updateScreenInput(numberArray);
-    screenInput.textContent = 0;
+    elementToClear.textContent = 0;
 }
 
 function addNumberToInput(e, numberArray) {
     if (numberArray.length === maxInputLength) {
         return;
     }
-    mainInput.push(e.target.id[0]);
+    numberArray.push(e.target.id[0]);
     console.log(`${e.target.id[0]}`);
     updateScreenInput(numberArray);
 }
