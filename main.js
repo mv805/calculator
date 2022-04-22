@@ -49,7 +49,7 @@ equalsButton.addEventListener('click', () => {
     screenResult.textContent = `${operands[0]} ${operators[0]} ${operands[1]} = ${cumulativeAnswer}`;
     operators.length = 0;
     operands.length = 0;
-    operands.push(cumulativeAnswer);
+    operands.push(+cumulativeAnswer);
     resetInput();
     screenInput.textContent = 0;
     equalsUsedLastTime = true;
@@ -122,18 +122,35 @@ function resetInput() {
     mainInput.length = 0;
 }
 function calculate(operandArray, operatorArray) {
+    let result;
     switch (operatorArray[0]) {
         case '/':
-            return (operandArray[0] / operandArray[1]).toFixed(2);
+            result = operandArray[0] / operandArray[1];
+            if (result % 1 != 0) {
+                return result.toFixed(2);
+            }
+            return result;
             break;
         case '*':
-            return (operandArray[0] * operandArray[1]).toFixed(2);
+            result = operandArray[0] * operandArray[1];
+            if (result % 1 != 0) {
+                return result.toFixed(2);
+            }
+            return result;
             break;
         case '-':
-            return (operandArray[0] - operandArray[1]).toFixed(2);
+            result = operandArray[0] - operandArray[1];
+            if (result % 1 != 0) {
+                return result.toFixed(2);
+            }
+            return result;
             break;
         case '+':
-            return (operandArray[0] + operandArray[1]).toFixed(2);
+            result = operandArray[0] + operandArray[1];
+            if (result % 1 != 0) {
+                return result.toFixed(2);
+            }
+            return result;
             break;
         default:
             break;
