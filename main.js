@@ -61,11 +61,6 @@ numberButtons.forEach(numberButton => numberButton.addEventListener('click', (e)
         return;
     }
 
-    /*if (!firstOperandWasInput && operands.length > 0) {
-        resetInput();
-        firstOperandWasInput = true;
-    }*/
-
     if (e.target.id === 'decimal-button') {
         mainInput.push('.');
         decimalInInput = true;
@@ -78,6 +73,10 @@ numberButtons.forEach(numberButton => numberButton.addEventListener('click', (e)
 
 
 operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click', (e) => {
+    if (operators.length === 1) {
+        return;
+    }
+
     if (equalsUsedLastTime) {
         operators.push(getOperator(e));
         screenResult.textContent = `${cumulativeAnswer} ${operators[0]}`;
@@ -85,7 +84,7 @@ operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click
         return;
     }
     if (operands.length >= 1) {
-        //do calculations
+        
         if (mainInput.length === 0 ) {
             operands.push(0);
         } else {
@@ -115,40 +114,7 @@ operatorButtons.forEach(operatorButton => operatorButton.addEventListener('click
     }
 
 
-    
-    /* 
-    
-
-    if (e.target.id !== 'equal-button') {
-
-        cumulativeAnswer = calculate(operands, operators);
-
-        operators.length = 0;
-        operands.length = 0;
-        resetInput();
-
-        operands.push(cumulativeAnswer);//c
-        operators.push(getOperator(e));
-        screenResult.textContent = `${cumulativeAnswer} ${operators[0]}`;
-        screenInput.textContent = 0;
-
-    } else if (firstOperandWasInput && e.target.id === 'equal-button'){
-
-        cumulativeAnswer = calculate(operands, operators);
-        screenResult.textContent = `${operands[0]} ${operators[0]} ${operands[1]} =`;
-        screenInput.textContent = cumulativeAnswer;
-        
-        operators.length = 0;
-        operands.length = 0;
-        resetInput();
-        operands.push(cumulativeAnswer);
-    } else {
-
-        operators.push(getOperator(e));
-        screenResult.textContent = `${operands[0]} ${operators[0]}`;
-        screenInput.textContent = 0;
-    }*/
-
+   
 }));
 
 function resetInput() {
@@ -158,16 +124,16 @@ function resetInput() {
 function calculate(operandArray, operatorArray) {
     switch (operatorArray[0]) {
         case '/':
-            return operandArray[0] / operandArray[1];
+            return (operandArray[0] / operandArray[1]).toFixed(2);
             break;
         case '*':
-            return operandArray[0] * operandArray[1];
+            return (operandArray[0] * operandArray[1]).toFixed(2);
             break;
         case '-':
-            return operandArray[0] - operandArray[1];
+            return (operandArray[0] - operandArray[1]).toFixed(2);
             break;
         case '+':
-            return operandArray[0] + operandArray[1];
+            return (operandArray[0] + operandArray[1]).toFixed(2);
             break;
         default:
             break;
