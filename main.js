@@ -21,10 +21,11 @@ clearButton.addEventListener('click', () => {
     screenInput.textContent = 0;
     resetInput();
     screenResult.textContent = '';
-    cumulativeAnswer = 0;
+    cumulativeAnswer = undefined;
     operators.length = 0;
     operands.length = 0;
     firstOperandWasInput = false;
+    equalsUsedLastTime = false;
 });
 
 deleteButton.addEventListener('click', () => {
@@ -37,7 +38,7 @@ deleteButton.addEventListener('click', () => {
 });
 
 equalsButton.addEventListener('click', () => {
-    if (operands.length === 0) {
+    if (operands.length === 0 || equalsUsedLastTime) {
         return;
     } 
     if (mainInput.length === 0 ) {
@@ -52,8 +53,7 @@ equalsButton.addEventListener('click', () => {
     operands.push(+cumulativeAnswer);
     resetInput();
     screenInput.textContent = 0;
-    equalsUsedLastTime = true;
-    //Array.from(cumulativeAnswer.toString()).map(Number);
+    equalsUsedLastTime = true;    
 });
 
 numberButtons.forEach(numberButton => numberButton.addEventListener('click', (e) => {
