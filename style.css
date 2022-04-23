@@ -16,8 +16,6 @@ footer {
     padding: 0;
 }
 
-
-
 a:link {
     text-decoration: none;
     color: rgb(153, 153, 153);
@@ -98,7 +96,6 @@ button:active {
     color: #C6C6C6;
     font-style: italic;
     justify-content: space-evenly;
-
 }
 
 #screen-result {
