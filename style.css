@@ -12,10 +12,20 @@ body {
 }
 
 footer {
-    height: 3vh;
     margin-top: auto;
+    padding: 0;
 }
 
+
+
+a:link {
+    text-decoration: none;
+    color: rgb(153, 153, 153);
+}
+
+a:visited {
+    color: rgb(114, 71, 170);
+}
 /* buttons ||*/
 button {
     background-color: #414141;
@@ -42,10 +52,11 @@ button:active {
     grid-column: 1 / 4;
     grid-row: 1;
 }
+
 #clear-button:active {
     background-color: #797979;
     color: #C4C4C4;
-    
+
 }
 
 .clear-button {
@@ -97,7 +108,7 @@ button:active {
 }
 
 #screen-input {
-    font-size:  36px;
+    font-size: 36px;
     margin-right: .75rem;
 }
 
