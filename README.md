@@ -1,4 +1,7 @@
 # Javascript Calculator
 A simple calcualtor built with Javascript and styled with CSS.
+![](/screenshot.PNG)
 
-https://mv805.github.io/calculator/
+### Links
+Live Site URL: [https://mv805.github.io/calculator/](https://mv805.github.io/calculator/)
+
